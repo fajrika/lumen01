@@ -12,13 +12,10 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/user/login', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'user'], function () use ($router) {
+    $router->get('login', 'UserController@login');
+    $router->post('login', 'UserController@login');
 });
-// $router->group(['prefix' => 'user'], function () use ($router) {
-//     $router->get('login', 'UserController@login');
-//     $router->post('login', 'UserController@login');
-// });
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
