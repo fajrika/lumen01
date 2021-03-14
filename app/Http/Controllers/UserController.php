@@ -31,9 +31,8 @@ class UserController extends Controller
         else {
             $results = DB::select("SELECT * FROM [user]");
             return response()->json([
-                'message' => $results,
+                'message' => $results[0],
                 'userId' => 123
-
             ], 200);
         }
     }
