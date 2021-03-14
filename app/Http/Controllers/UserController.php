@@ -29,9 +29,9 @@ class UserController extends Controller
                 'message' => 'Password belum di isi'
             ], 400);
         else {
-            $results = DB::select("SELECT uuid FROM [user]");
+            $results = DB::select("SELECT * FROM [user]");
             return response()->json([
-                'message' => $results[0],
+                'message' => $results,
                 'userId' => 123
             ], 200);
         }
